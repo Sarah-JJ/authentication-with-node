@@ -1,0 +1,84 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+   <meta charset="UTF-8">
+   <title>TITLE</title>
+   <meta name="description" content="DESCRIPTION">
+   <link rel="stylesheet" href="PATH">
+
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+     #login-form-container {
+       margin: 130px auto;
+       width: 460px;
+     }
+   </style>
+ </head>
+
+ <body>
+
+
+
+   <div class="container" id="login-form-container">
+
+     <div class="row">
+       <% if(title == "Registration Complete") {%>
+       <div class="alert alert-success">
+         <%= title %>
+       </div>
+       <% } else { %>
+
+       <h1><%= title %></h1>
+
+       <% } %>
+     </div>
+
+     <div class="row">
+       <% if (typeof errors !== 'undefined') { %>
+       <% for(let i=0; i<errors.length; i++){ %>
+       <div class="alert alert-danger">
+         <%= errors[i].msg %>
+       </div>
+       <% } %>
+       <% } %>
+     </div>
+
+     <div class="row">
+
+       <div class="col-2">
+
+         <form method="POST" action="/register">
+
+           <div class="form-group">
+             <label for="email">Email address</label>
+             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+           </div>
+
+           <div class="form-group">
+             <label for="username">Username</label>
+             <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+           </div>
+
+           <div class="form-group">
+             <label for="password">Password</label>
+             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+           </div>
+
+           <div class="form-group">
+             <label for="passwordMatch">Password Match</label>
+             <input type="password" class="form-control" id="passwordMatch" name="passwordMatch" placeholder="Re-type password">
+           </div>
+
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+       </div>
+     </div>
+   </div>
+
+
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ </body>
+
+ </html>
